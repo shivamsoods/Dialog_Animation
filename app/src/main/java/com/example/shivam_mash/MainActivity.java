@@ -2,6 +2,7 @@ package com.example.shivam_mash;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     private ImageView d1, d2, d3, d4, d5, d6, d7,close;
     private EditText etDayId;
+    private Dialog mainDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,15 +44,15 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void showCustomDialog(int dayId) {
-        final Dialog mainDialog = new Dialog(MainActivity.this);
+        mainDialog = new Dialog(MainActivity.this);
+
         mainDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         mainDialog.setContentView(R.layout.dialog_check_in);
-
         Window window = mainDialog.getWindow();
         assert window != null;
         window.setLayout(AbsListView.LayoutParams.MATCH_PARENT, AbsListView.LayoutParams.MATCH_PARENT);
         mainDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
+        mainDialog.getWindow().getAttributes().windowAnimations = R.style.dialog_animation;
         Button btnCheckIn = mainDialog.findViewById(R.id.btn_dialog_check_in);
         Button btnTwoCoin = mainDialog.findViewById(R.id.btn_dialog_two);
 
