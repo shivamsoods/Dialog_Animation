@@ -16,9 +16,11 @@
 <TextView
     android:layout_marginTop="30dp"
     android:layout_gravity="center"
-    android:layout_width="200dp"
+    android:layout_width="400dp"
+    android:textAlignment="center"
+    android:textSize="20sp"
     android:layout_height="wrap_content"
-    android:text="Enter day id to see Image change"/>
+    android:text="Enter day(1 to 5) to see Image change"/>
     <EditText
         android:inputType="numberSigned"
         android:layout_gravity="center"

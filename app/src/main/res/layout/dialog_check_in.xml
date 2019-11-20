@@ -1,24 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:background="@drawable/main_gradient_background"
     android:orientation="vertical"
-    android:background="@drawable/main_gradient_background">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:text="DAILY CHECK-IN"
-        android:textColor="#FFFFFF"
-        android:textSize="24dp"
-        android:textStyle="bold" />
+    android:layout_gravity="center">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="4dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:text="DAILY CHECK-IN"
+            android:textColor="#FFFFFF"
+            android:textSize="24dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/img_dialog_close"
+            android:layout_marginLeft="29dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/close" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
         android:background="#FFFFFF" />
 
     <LinearLayout
@@ -246,12 +259,13 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/main_white_rectangle"
         android:orientation="horizontal">
 
         <Button
+            android:layout_marginTop="5dp"
             android:id="@+id/btn_dialog_check_in"
             android:layout_width="100dp"
             android:layout_height="40dp"
@@ -261,6 +275,7 @@
             android:textStyle="bold" />
 
         <Button
+            android:layout_marginTop="5dp"
             android:id="@+id/btn_dialog_two"
             android:layout_width="100dp"
             android:layout_height="40dp"

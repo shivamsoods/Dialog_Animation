@@ -3,16 +3,19 @@ package com.example.shivam_mash;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private ImageView d1, d2, d3, d4, d5, d6, d7;
+    private ImageView d1, d2, d3, d4, d5, d6, d7,close;
     private EditText etDayId;
 
     @Override
@@ -22,12 +25,15 @@ public class MainActivity extends AppCompatActivity {
 
         Button btnShowDialog = findViewById(R.id.btn_main_show_dialog);
         etDayId = findViewById(R.id.et_main_day_id);
+        etDayId.setText("1");
 
         showCustomDialog(1);
         btnShowDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 int dayId = Integer.parseInt(etDayId.getText().toString().trim());
+
                 showCustomDialog(dayId);
             }
         });
@@ -40,6 +46,11 @@ public class MainActivity extends AppCompatActivity {
         mainDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         mainDialog.setContentView(R.layout.dialog_check_in);
 
+        Window window = mainDialog.getWindow();
+        assert window != null;
+        window.setLayout(AbsListView.LayoutParams.MATCH_PARENT, AbsListView.LayoutParams.MATCH_PARENT);
+        mainDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
         Button btnCheckIn = mainDialog.findViewById(R.id.btn_dialog_check_in);
         Button btnTwoCoin = mainDialog.findViewById(R.id.btn_dialog_two);
 
@@ -50,11 +61,18 @@ public class MainActivity extends AppCompatActivity {
         d5 = mainDialog.findViewById(R.id.img_dialog_day5);
         d6 = mainDialog.findViewById(R.id.img_dialog_day6);
         d7 = mainDialog.findViewById(R.id.img_dialog_day7);
+        close=mainDialog.findViewById(R.id.img_dialog_close);
 
         getOpenDay(dayId);
         mainDialog.show();
 
 
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainDialog.hide();
+            }
+        });
         btnCheckIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
